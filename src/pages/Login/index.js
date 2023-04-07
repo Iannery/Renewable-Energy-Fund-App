@@ -26,6 +26,7 @@ export default function Login({ navigation }) {
       const user = JSON.parse(result);
       if (user.password === password) {
         alert("Login successful!");
+        navigation.navigate("TabBar");
       } else {
         alert("Incorrect password.");
       }
