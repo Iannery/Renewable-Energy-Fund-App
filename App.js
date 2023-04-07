@@ -1,20 +1,26 @@
 import React, { useCallback } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import Routes from "./src/routes";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import Routes from "./src/routes";
+import { atom } from "jotai";
 
 SplashScreen.preventAutoHideAsync();
 
+export const userAtom = atom({
+  email: "",
+  password: "",
+});
+
 export default function App() {
   const [loaded] = useFonts({
-    AlbertSansBold: require("./assets/fonts/AlbertSans-Bold.ttf"),
-    AlbertSansLight: require("./assets/fonts/AlbertSans-Light.ttf"),
-    AlbertSansMedium: require("./assets/fonts/AlbertSans-Medium.ttf"),
-    AlbertSansRegular: require("./assets/fonts/AlbertSans-Regular.ttf"),
-    AlbertSansSemiBold: require("./assets/fonts/AlbertSans-SemiBold.ttf"),
-    AlbertSansBlack: require("./assets/fonts/AlbertSans-Black.ttf"),
+    // AlbertSansBold: require("./assets/fonts/AlbertSans-Bold.ttf"),
+    // AlbertSansLight: require("./assets/fonts/AlbertSans-Light.ttf"),
+    // AlbertSansMedium: require("./assets/fonts/AlbertSans-Medium.ttf"),
+    // AlbertSansRegular: require("./assets/fonts/AlbertSans-Regular.ttf"),
+    // AlbertSansSemiBold: require("./assets/fonts/AlbertSans-SemiBold.ttf"),
+    // AlbertSansBlack: require("./assets/fonts/AlbertSans-Black.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {

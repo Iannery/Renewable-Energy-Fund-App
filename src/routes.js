@@ -9,7 +9,7 @@ const Routes = () => {
   return (
     <Stack.Navigator
       screenOptions={() => ({
-        headerShown: true,
+        headerShown: false,
       })}
       initialRouteName="Login"
     >
