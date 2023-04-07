@@ -22,7 +22,7 @@ export default function LoginRoutes() {
       }}
     >
       <Stack.Screen name="Login Page" component={Login} />
-      {/* <Stack.Screen name="Signup Page" component={Signup} /> */}
+      <Stack.Screen name="Signup Page" component={Signup} />
     </Stack.Navigator>
   );
 }

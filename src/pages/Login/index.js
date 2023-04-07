@@ -10,6 +10,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { StatusBar } from "expo-status-bar";
 import CustomButton from "../../components/CustomButton";
 import * as SecureStore from "expo-secure-store";
+import { transformEmailToKey } from "../../utils";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -19,9 +20,11 @@ export default function Login({ navigation }) {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   async function validateCredentials(email, password) {
-    let result = await SecureStore.getItemAsync(email);
+    const emailKey = transformEmailToKey(email);
+    let result = await SecureStore.getItemAsync(emailKey);
     if (result) {
-      if (result.password === password) {
+      const user = JSON.parse(result);
+      if (user.password === password) {
         alert("Login successful!");
       } else {
         alert("Incorrect password.");
