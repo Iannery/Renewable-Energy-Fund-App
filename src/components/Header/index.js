@@ -28,7 +28,7 @@ const Header = ({ user }) => {
   );
 
   // Mock percentage
-  const percentage = "+2.34%";
+  const percentage = "32.34%";
 
   return (
     <View style={{ paddingTop: insets.top, backgroundColor: "#FFFFFF" }}>
@@ -74,7 +74,7 @@ const Header = ({ user }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
     paddingTop: 8,
     paddingBottom: 24,
     backgroundColor: "#FFFFFF",
