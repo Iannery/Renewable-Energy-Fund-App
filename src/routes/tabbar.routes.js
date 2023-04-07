@@ -26,6 +26,7 @@ const TabBarRoutes = () => {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={({ route }) => ({
+        headerShown: false,
         tabBarLabelStyle: {
           fontSize: 10,
           fontWeight: "700",

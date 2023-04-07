@@ -11,6 +11,9 @@ import { StatusBar } from "expo-status-bar";
 import CustomButton from "../../components/CustomButton";
 import * as SecureStore from "expo-secure-store";
 import { transformEmailToKey } from "../../utils";
+import { atom, useAtom } from "jotai";
+
+export const userAtom = atom(null);
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -18,6 +21,7 @@ export default function Login({ navigation }) {
   const [password, setPassword] = useState("");
   const [focusedPassword, setFocusedPassword] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [newUser, setUser] = useAtom(userAtom);
 
   async function validateCredentials(email, password) {
     const emailKey = transformEmailToKey(email);
@@ -25,7 +29,11 @@ export default function Login({ navigation }) {
     if (result) {
       const user = JSON.parse(result);
       if (user.password === password) {
-        alert("Login successful!");
+        setUser({
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
+        });
         navigation.navigate("TabBar");
       } else {
         alert("Incorrect password.");

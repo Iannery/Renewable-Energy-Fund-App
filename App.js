@@ -4,14 +4,8 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Routes from "./src/routes";
-import { atom } from "jotai";
 
 SplashScreen.preventAutoHideAsync();
-
-export const userAtom = atom({
-  email: "",
-  password: "",
-});
 
 export default function App() {
   const [loaded] = useFonts({
