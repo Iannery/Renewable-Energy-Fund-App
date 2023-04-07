@@ -3,17 +3,16 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Rewards } from "../../assets";
 
 const Header = ({ user }) => {
   const onUserIconPress = () => {
-    // Display user information
     alert(
       `User Information:\n\nName: ${user.firstName} ${user.lastName}\nEmail: ${user.email}`
     );
   };
 
   const onNotificationIconPress = () => {
-    // Handle notification icon press
     alert("Notification icon pressed");
   };
 
@@ -27,7 +26,6 @@ const Header = ({ user }) => {
     portfolioValue
   );
 
-  // Mock percentage
   const percentage = "32.34%";
 
   return (
@@ -63,7 +61,7 @@ const Header = ({ user }) => {
             </View>
           </View>
           <TouchableOpacity style={styles.rewardsButton}>
-            <Ionicons name="star-outline" size={14} color="#770FDF" />
+            <Rewards width={16} height={16} />
             <Text style={styles.rewardsText}>Earn Rewards</Text>
           </TouchableOpacity>
         </View>

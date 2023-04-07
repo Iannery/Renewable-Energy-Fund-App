@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const FundCard = ({ fund }) => {
   const { icon, name, graph, shares, price, percentageChange } = fund;
@@ -17,8 +18,20 @@ const FundCard = ({ fund }) => {
       <Text style={styles.name}>{name}</Text>
       {graph()}
       <View style={styles.row}>
-        <Text style={styles.total}>{calculateTotal(shares, price)}</Text>
-        <Text style={styles.percentageChange}>{percentageChange}%</Text>
+        <Text style={styles.total}>{`$${calculateTotal(shares, price)}`}</Text>
+        <View flexDirection={"row"} alignItems={"center"}>
+          <MaterialCommunityIcons
+            name={
+              percentageChange > 0 ? "arrow-top-right" : "arrow-bottom-right"
+            }
+            size={14}
+            color={percentageChange > 0 ? "#0FDF8F" : "#EE8688"}
+          />
+
+          <Text style={styles.percentageChange(percentageChange > 0)}>
+            {percentageChange}%
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -26,7 +39,7 @@ const FundCard = ({ fund }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 130,
+    width: 150,
     height: 150,
     backgroundColor: "#FFFFFF",
     borderRadius: 4,
@@ -51,12 +64,12 @@ const styles = StyleSheet.create({
   },
   total: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: "400",
   },
-  percentageChange: {
+  percentageChange: (isPositive) => ({
     fontSize: 14,
-    color: "green",
-  },
+    color: isPositive ? "#0FDF8F" : "#EE8688",
+  }),
   row: {
     flexDirection: "row",
     justifyContent: "space-between",

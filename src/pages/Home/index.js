@@ -14,7 +14,7 @@ import { Feather } from "@expo/vector-icons";
 
 import { useAtom } from "jotai";
 import { userAtom } from "../Login";
-import { Nature, Sun, Wind } from "../../assets/svg";
+import { BusinessStatistics, Nature, Sun, Wind } from "../../assets/svg";
 import FundCard from "../../components/FundCard";
 
 export default function Home() {
@@ -67,22 +67,18 @@ export default function Home() {
           horizontal
           data={user.portfolio}
           keyExtractor={(item) => item.symbol}
-          ItemSeparatorComponent={() => <View style={{ width: 16 }} />}
+          contentContainerStyle={{ gap: 16 }}
+          showsHorizontalScrollIndicator={false}
           renderItem={({ item }) => <FundCard key={item.symbol} fund={item} />}
         />
         <TouchableOpacity style={styles.learnMoreButton}>
-          <Ionicons
-            name="information-circle-outline"
-            size={48}
-            color="white"
-            style={styles.learnMoreIcon}
-          />
           <View style={styles.learnMoreTextContainer}>
             <Text style={styles.learnMoreText}>
               Learn more about{"\n"}carbon credits
             </Text>
             <Text style={styles.learnMoreSubText}>Check out our top tips!</Text>
           </View>
+          <BusinessStatistics />
         </TouchableOpacity>
         <View style={styles.cardContainer}>
           <View style={styles.card}>
@@ -125,8 +121,8 @@ const styles = StyleSheet.create({
   learnMoreButton: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#4CAF50",
-    borderRadius: 4,
+    backgroundColor: "#770FDF",
+    borderRadius: 10,
     paddingVertical: 16,
     paddingHorizontal: 16,
     marginBottom: 16,
@@ -137,6 +133,7 @@ const styles = StyleSheet.create({
   },
   learnMoreTextContainer: {
     flex: 1,
+    gap: 10,
   },
   learnMoreText: {
     fontSize: 18,
