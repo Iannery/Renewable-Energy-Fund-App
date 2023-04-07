@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     color: "#fff",
-    fontWeight: "400",
+    fontFamily: "Sora_400Regular",
   },
 });
 

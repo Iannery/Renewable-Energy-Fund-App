@@ -1,9 +1,8 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import { View, Text, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const FundCard = ({ fund }) => {
+const FundCard = ({ fund, navigation }) => {
   const { icon, name, graph, shares, price, percentageChange } = fund;
 
   const calculateTotal = (shares, price) => {
@@ -24,7 +23,7 @@ const FundCard = ({ fund }) => {
             name={
               percentageChange > 0 ? "arrow-top-right" : "arrow-bottom-right"
             }
-            size={14}
+            size={16}
             color={percentageChange > 0 ? "#0FDF8F" : "#EE8688"}
           />
 
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 14,
-    fontWeight: "600",
+    fontFamily: "Sora_600SemiBold",
     marginVertical: 8,
   },
   graph: {
@@ -63,11 +62,11 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   total: {
-    fontSize: 18,
-    fontWeight: "400",
+    fontSize: 16,
+    fontFamily: "Sora_400Regular",
   },
   percentageChange: (isPositive) => ({
-    fontSize: 14,
+    fontSize: 16,
     color: isPositive ? "#0FDF8F" : "#EE8688",
   }),
   row: {

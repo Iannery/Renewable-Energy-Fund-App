@@ -29,7 +29,7 @@ const TabBarRoutes = () => {
         headerShown: false,
         tabBarLabelStyle: {
           fontSize: 10,
-          fontWeight: "700",
+          fontFamily: "Sora_700Bold",
           marginTop: 0,
           paddingTop: 0,
         },

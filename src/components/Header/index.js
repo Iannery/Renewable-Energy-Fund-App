@@ -22,6 +22,7 @@ const Header = ({ user }) => {
     (total, stock) => total + stock.shares * stock.price,
     0
   );
+
   const formattedPortfolioValue = new Intl.NumberFormat("en-US").format(
     portfolioValue
   );
@@ -90,20 +91,20 @@ const styles = StyleSheet.create({
   },
   balanceText: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontFamily: "Sora_600SemiBold",
   },
   portfolioRow: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "baseline",
     marginTop: 4,
   },
   portfolioTitle: {
     fontSize: 14,
-    fontWeight: "400",
+    fontFamily: "Sora_400Regular",
   },
   portfolioText: {
     fontSize: 28,
-    fontWeight: "500",
+    fontFamily: "Sora_500Medium",
     marginRight: 4,
   },
   arrowIcon: {
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
   },
   percentageText: {
     fontSize: 14,
-    fontWeight: "400",
+    fontFamily: "Sora_400Regular",
     color: "#0FDF8F",
   },
   bottomRow: {
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
   },
   rewardsText: {
     fontSize: 14,
-    fontWeight: "500",
+    fontFamily: "Sora_500Medium",
     color: "#770FDF",
     marginLeft: 4,
   },

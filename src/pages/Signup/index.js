@@ -181,12 +181,12 @@ const styles = StyleSheet.create({
   },
   signupTitle: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "Sora_600SemiBold",
     marginBottom: 42,
   },
   inputLabel: {
     fontSize: 14,
-    fontWeight: "400",
+    fontFamily: "Sora_400Regular",
     alignSelf: "flex-start",
     marginBottom: 5,
     color: "#A0A0A0",
@@ -209,6 +209,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
+    fontFamily: "Sora_400Regular",
     color: "#A0A0A0",
   },
   passwordContainer: {
@@ -230,10 +231,13 @@ const styles = StyleSheet.create({
   },
   loginText: {
     fontSize: 14,
+    fontFamily: "Sora_400Regular",
     color: "#A0A0A0",
   },
   loginLink: {
     color: "#000000",
+    fontSize: 14,
+    fontFamily: "Sora_400Regular",
     textDecorationLine: "underline",
   },
   loginButton: {

@@ -135,12 +135,12 @@ const styles = StyleSheet.create({
   },
   loginTitle: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "Sora_600SemiBold",
     marginBottom: 42,
   },
   inputLabel: (isFocused) => ({
     fontSize: 14,
-    fontWeight: isFocused ? "500" : "400",
+    fontFamily: isFocused ? "Sora_500Medium" : "Sora_400Regular",
     alignSelf: "flex-start",
     marginBottom: 5,
     color: "#A0A0A0",
@@ -171,6 +171,7 @@ const styles = StyleSheet.create({
   signupTextButton: {
     fontSize: 14,
     color: "#A0A0A0",
+    fontFamily: "Sora_400Regular",
     textDecorationLine: "underline",
   },
 });

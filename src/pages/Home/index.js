@@ -17,7 +17,7 @@ import { userAtom } from "../Login";
 import { BusinessStatistics, Nature, Sun, Wind } from "../../assets/svg";
 import FundCard from "../../components/FundCard";
 
-export default function Home() {
+export default function Home({ navigation }) {
   // const [user] = useAtom(userAtom);
   const user = {
     email: "ian@ian.com",
@@ -31,7 +31,7 @@ export default function Home() {
         icon: () => <Feather name="wind" size={14} color="#4A88D0" />,
         graph: () => <Wind />,
         shares: 10,
-        price: 120.0,
+        price: 120.5,
         percentageChange: 3.51,
       },
       {
@@ -40,7 +40,7 @@ export default function Home() {
         icon: () => <Feather name="sun" size={14} color="#F0A719" />,
         graph: () => <Sun />,
         shares: 20,
-        price: 200.0,
+        price: 16.0,
         percentageChange: -2.51,
       },
       {
@@ -51,7 +51,7 @@ export default function Home() {
         ),
         graph: () => <Nature />,
         shares: 5,
-        price: 500.0,
+        price: 500.3,
         percentageChange: 1.51,
       },
     ],
@@ -69,7 +69,9 @@ export default function Home() {
           keyExtractor={(item) => item.symbol}
           contentContainerStyle={{ gap: 16 }}
           showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => <FundCard key={item.symbol} fund={item} />}
+          renderItem={({ item }) => (
+            <FundCard key={item.symbol} fund={item} navigation={navigation} />
+          )}
         />
         <TouchableOpacity style={styles.learnMoreButton}>
           <View style={styles.learnMoreTextContainer}>
@@ -98,25 +100,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFFFFF",
     paddingHorizontal: 20,
-    paddingTop: 16,
+    paddingTop: 20,
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 16,
+    fontFamily: "Sora_600SemiBold",
+    marginBottom: 20,
   },
   fundsList: {
-    marginBottom: 16,
-  },
-  fundItem: {
-    backgroundColor: "#F4F4F4",
-    borderRadius: 4,
-    padding: 8,
-    marginRight: 16,
-  },
-  fundItemText: {
-    fontSize: 14,
-    fontWeight: "500",
+    marginBottom: 20,
   },
   learnMoreButton: {
     flexDirection: "row",
@@ -125,7 +117,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 16,
     paddingHorizontal: 16,
-    marginBottom: 16,
+    marginBottom: 20,
   },
   learnMoreIcon: {
     height: 87,
@@ -137,7 +129,7 @@ const styles = StyleSheet.create({
   },
   learnMoreText: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontFamily: "Sora_600SemiBold",
     color: "white",
   },
   learnMoreSubText: {
@@ -147,18 +139,21 @@ const styles = StyleSheet.create({
   cardContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
+    width: "100%",
+    height: 350,
+    gap: 16,
   },
   card: {
     flex: 1,
     backgroundColor: "#F4F4F4",
     borderRadius: 4,
-    padding: 16,
-    justifyContent: "center",
-    alignItems: "center",
-    marginHorizontal: 4,
+    paddingTop: 20,
+    paddingHorizontal: 12,
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
   },
   cardText: {
     fontSize: 14,
-    fontWeight: "500",
+    fontFamily: "Sora_500Medium",
   },
 });
