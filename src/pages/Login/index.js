@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
   input: {
     width: "100%",
     borderRadius: 4,
+    fontFamily: "Sora_400Regular",
     padding: 10,
   },
   passwordContainer: {
@@ -165,11 +166,12 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
   },
   signupText: {
-    fontSize: 14,
+    fontSize: 12,
+    fontFamily: "Sora_400Regular",
     color: "#A0A0A0",
   },
   signupTextButton: {
-    fontSize: 14,
+    fontSize: 12,
     color: "#A0A0A0",
     fontFamily: "Sora_400Regular",
     textDecorationLine: "underline",

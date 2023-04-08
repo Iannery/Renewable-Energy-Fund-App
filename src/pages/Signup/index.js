@@ -195,6 +195,7 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 4,
     padding: 10,
+    fontFamily: "Sora_400Regular",
   },
   checkboxContainer: {
     marginRight: 22,

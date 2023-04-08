@@ -11,7 +11,7 @@ const Routes = () => {
       screenOptions={() => ({
         headerShown: false,
       })}
-      initialRouteName="TabBar"
+      initialRouteName="Login"
     >
       <Stack.Screen name="Login" component={LoginRoutes} />
       <Stack.Screen name="TabBar" component={TabBarRoutes} />

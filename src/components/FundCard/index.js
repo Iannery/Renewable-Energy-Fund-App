@@ -50,8 +50,8 @@ const FundCard = ({ fund }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 150,
-    height: 150,
+    flex: 1,
+    gap: 8,
     backgroundColor: "#FFFFFF",
     borderRadius: 4,
     borderColor: "#E5E5E5",
@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 14,
     fontFamily: "Sora_600SemiBold",
-    marginVertical: 8,
   },
   graph: {
     width: "100%",
@@ -82,6 +81,7 @@ const styles = StyleSheet.create({
     color: isPositive ? "#0FDF8F" : "#EE8688",
   }),
   row: {
+    gap: 8,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
