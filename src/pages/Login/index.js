@@ -7,11 +7,13 @@ import {
   StyleSheet,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Feather } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 import CustomButton from "../../components/CustomButton";
 import * as SecureStore from "expo-secure-store";
 import { transformEmailToKey } from "../../utils";
 import { atom, useAtom } from "jotai";
+import { Wind, Sun, Nature } from "../../assets";
 
 export const userAtom = atom(null);
 
@@ -22,7 +24,7 @@ export default function Login({ navigation }) {
   const [focusedPassword, setFocusedPassword] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [newUser, setUser] = useAtom(userAtom);
-
+  // ],
   async function validateCredentials(email, password) {
     const emailKey = transformEmailToKey(email);
     let result = await SecureStore.getItemAsync(emailKey);
@@ -33,6 +35,38 @@ export default function Login({ navigation }) {
           email: user.email,
           firstName: user.firstName,
           lastName: user.lastName,
+          balance: 1457.23,
+          portfolio: [
+            {
+              symbol: "WFND",
+              name: "Wind Fund",
+              icon: () => <Feather name="wind" size={14} color="#4A88D0" />,
+              graph: () => <Wind />,
+              shares: 10,
+              price: 120.5,
+              percentageChange: 3.51,
+            },
+            {
+              symbol: "SFND",
+              name: "Solar Fund",
+              icon: () => <Feather name="sun" size={14} color="#F0A719" />,
+              graph: () => <Sun />,
+              shares: 20,
+              price: 16.0,
+              percentageChange: -2.51,
+            },
+            {
+              symbol: "NFND",
+              name: "Nature Fund",
+              icon: () => (
+                <Ionicons name="ios-leaf-outline" size={14} color="#0FDF8F" />
+              ),
+              graph: () => <Nature />,
+              shares: 5,
+              price: 500.3,
+              percentageChange: 1.51,
+            },
+          ],
         });
         navigation.navigate("TabBar");
       } else {

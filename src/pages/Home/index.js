@@ -18,44 +18,44 @@ import { BusinessStatistics, Nature, Sun, Wind } from "../../assets/svg";
 import FundCard from "../../components/FundCard";
 
 export default function Home({ navigation }) {
-  // const [user] = useAtom(userAtom);
-  const user = {
-    email: "ian@ian.com",
-    firstName: "Ian",
-    lastName: "Bandeira",
-    balance: 1457.23,
-    portfolio: [
-      {
-        symbol: "WFND",
-        name: "Wind Fund",
-        icon: () => <Feather name="wind" size={14} color="#4A88D0" />,
-        graph: () => <Wind />,
-        shares: 10,
-        price: 120.5,
-        percentageChange: 3.51,
-      },
-      {
-        symbol: "SFND",
-        name: "Solar Fund",
-        icon: () => <Feather name="sun" size={14} color="#F0A719" />,
-        graph: () => <Sun />,
-        shares: 20,
-        price: 16.0,
-        percentageChange: -2.51,
-      },
-      {
-        symbol: "NFND",
-        name: "Nature Fund",
-        icon: () => (
-          <Ionicons name="ios-leaf-outline" size={14} color="#0FDF8F" />
-        ),
-        graph: () => <Nature />,
-        shares: 5,
-        price: 500.3,
-        percentageChange: 1.51,
-      },
-    ],
-  };
+  const [user] = useAtom(userAtom);
+  // const user = {
+  //   email: "ian@ian.com",
+  //   firstName: "Ian",
+  //   lastName: "Bandeira",
+  //   balance: 1457.23,
+  //   portfolio: [
+  //     {
+  //       symbol: "WFND",
+  //       name: "Wind Fund",
+  //       icon: () => <Feather name="wind" size={14} color="#4A88D0" />,
+  //       graph: () => <Wind />,
+  //       shares: 10,
+  //       price: 120.5,
+  //       percentageChange: 3.51,
+  //     },
+  //     {
+  //       symbol: "SFND",
+  //       name: "Solar Fund",
+  //       icon: () => <Feather name="sun" size={14} color="#F0A719" />,
+  //       graph: () => <Sun />,
+  //       shares: 20,
+  //       price: 16.0,
+  //       percentageChange: -2.51,
+  //     },
+  //     {
+  //       symbol: "NFND",
+  //       name: "Nature Fund",
+  //       icon: () => (
+  //         <Ionicons name="ios-leaf-outline" size={14} color="#0FDF8F" />
+  //       ),
+  //       graph: () => <Nature />,
+  //       shares: 5,
+  //       price: 500.3,
+  //       percentageChange: 1.51,
+  //     },
+  //   ],
+  // };
 
   return (
     <>
