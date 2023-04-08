@@ -3,3 +3,4 @@ export { default as Sun } from "./svg/sun.svg";
 export { default as Nature } from "./svg/nature.svg";
 export { default as BusinessStatistics } from "./svg/business-statistics.svg";
 export { default as Rewards } from "./svg/rewards.svg";
+export { default as MockGraph } from "./svg/mock-graph.svg";

@@ -1,16 +1,28 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
-const FundCard = ({ fund, navigation }) => {
-  const { icon, name, graph, shares, price, percentageChange } = fund;
+const FundCard = ({ fund }) => {
+  const { symbol, icon, name, graph, shares, price, percentageChange } = fund;
+  const navigation = useNavigation();
 
   const calculateTotal = (shares, price) => {
     return (shares * price).toFixed(2);
   };
 
+  const handlePress = () => {
+    navigation.navigate("Trade", {
+      symbol,
+      name,
+      price,
+      shares,
+      percentageChange,
+    });
+  };
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={handlePress}>
       <View style={styles.iconContainer}>
         <View style={styles.iconContainer}>{icon()}</View>
       </View>
@@ -32,7 +44,7 @@ const FundCard = ({ fund, navigation }) => {
           </Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

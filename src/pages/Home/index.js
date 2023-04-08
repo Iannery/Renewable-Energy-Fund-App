@@ -26,7 +26,7 @@ export default function Home({ navigation }) {
     balance: 1457.23,
     portfolio: [
       {
-        symbol: "Wind",
+        symbol: "WFND",
         name: "Wind Fund",
         icon: () => <Feather name="wind" size={14} color="#4A88D0" />,
         graph: () => <Wind />,
@@ -35,7 +35,7 @@ export default function Home({ navigation }) {
         percentageChange: 3.51,
       },
       {
-        symbol: "Solar",
+        symbol: "SFND",
         name: "Solar Fund",
         icon: () => <Feather name="sun" size={14} color="#F0A719" />,
         graph: () => <Sun />,
@@ -44,7 +44,7 @@ export default function Home({ navigation }) {
         percentageChange: -2.51,
       },
       {
-        symbol: "Nature",
+        symbol: "NFND",
         name: "Nature Fund",
         icon: () => (
           <Ionicons name="ios-leaf-outline" size={14} color="#0FDF8F" />
@@ -69,9 +69,7 @@ export default function Home({ navigation }) {
           keyExtractor={(item) => item.symbol}
           contentContainerStyle={{ gap: 16 }}
           showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <FundCard key={item.symbol} fund={item} navigation={navigation} />
-          )}
+          renderItem={({ item }) => <FundCard key={item.symbol} fund={item} />}
         />
         <TouchableOpacity style={styles.learnMoreButton}>
           <View style={styles.learnMoreTextContainer}>
