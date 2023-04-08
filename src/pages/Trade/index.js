@@ -11,6 +11,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MockGraph } from "../../assets";
 import { Image } from "react-native";
 import { FlatList } from "react-native";
+import { Ionicons } from "@expo/vector-icons/";
+import CustomButton from "../../components/CustomButton";
 
 const mockInfo = [
   {
@@ -133,10 +135,11 @@ const FundBreakdown = () => {
 };
 
 export default function Trade({ route }) {
-  const { price, percentageChange } = route.params
+  const { price, shares, percentageChange } = route.params
     ? route.params
     : {
         price: 120.5,
+        shares: 10,
         percentageChange: 3.51,
       };
   const navigation = useNavigation();
@@ -211,6 +214,57 @@ export default function Trade({ route }) {
         </View>
       </View>
       <FundBreakdown />
+      <View style={styles.buySellContainer}>
+        <View flexDirection={"row"} gap={5}>
+          <Ionicons name="pie-chart-outline" size={24} color="#000000" />
+          <Text style={styles.title}>Your Portfolio</Text>
+        </View>
+        <View style={styles.credits}>
+          <View style={styles.creditsColumn}>
+            <Text style={styles.creditsLabel}>{`${shares} credits`}</Text>
+            <View flexDirection={"row"} alignItems={"center"}>
+              <MaterialCommunityIcons
+                name={
+                  percentageChange > 0
+                    ? "arrow-top-right"
+                    : "arrow-bottom-right"
+                }
+                size={14}
+                color={percentageChange > 0 ? "#0FDF8F" : "#EE8688"}
+              />
+              <Text style={styles.creditsPercentage}>8.41%</Text>
+            </View>
+          </View>
+          <View flexDirection={"column"} alignItems={"flex-end"}>
+            <Text style={styles.creditsValue}>{`$${(price * shares).toFixed(
+              2
+            )}`}</Text>
+            <Text style={styles.lastPurchase}>Last purchase 1d ago</Text>
+          </View>
+        </View>
+        <View style={styles.buttons}>
+          <TouchableOpacity style={styles.sellButton}>
+            <Text style={styles.sellButtonText}>Sell</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.retireButton}>
+            <Text style={styles.retireButtonText}>Retire credits</Text>
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.warning}>
+          You've previously retired 28 credits of this asset.
+        </Text>
+        <View style={styles.disclaimerContainer}>
+          <Text style={styles.disclaimer}>
+            Please note that prices are for reference only and may vary at the
+            time of excecuting a buy or sell order.
+          </Text>
+          <Text style={styles.disclaimer}>
+            The information provided is not investment advice, and should not be
+            used as a recommendation to buy or sell assets.
+          </Text>
+        </View>
+        <CustomButton title={"Buy"} onPress={() => alert("Bought!")} />
+      </View>
     </ScrollView>
   );
 }
@@ -351,5 +405,87 @@ const styles = StyleSheet.create({
     fontFamily: "Sora_400Regular",
     color: "#000",
     textDecorationLine: "underline",
+  },
+  buySellContainer: {
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+  },
+  credits: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  creditsColumn: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
+  creditsLabel: {
+    fontSize: 24,
+    fontFamily: "Sora_600SemiBold",
+  },
+  creditsPercentage: {
+    fontSize: 16,
+    fontFamily: "Sora_400Regular",
+    color: "#0FDF8F",
+  },
+  creditsValue: {
+    fontSize: 24,
+    fontFamily: "Sora_600SemiBold",
+  },
+  lastPurchase: {
+    fontSize: 14,
+    fontFamily: "Sora_400Regular",
+    color: "#A0A0A0",
+  },
+  buttons: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 20,
+    gap: 10,
+  },
+  sellButton: {
+    flex: 1,
+    backgroundColor: "#fff",
+    paddingVertical: 12,
+    borderWidth: 1,
+    borderColor: "#CFCFCF",
+    borderRadius: 4,
+  },
+  sellButtonText: {
+    fontSize: 18,
+    fontFamily: "Sora_500Medium",
+    color: "#770FDF",
+    textAlign: "center",
+  },
+  retireButton: {
+    flex: 1,
+    backgroundColor: "#0FDF8F",
+    paddingVertical: 12,
+    borderRadius: 4,
+  },
+  retireButtonText: {
+    fontSize: 18,
+    fontFamily: "Sora_500Medium",
+    color: "#fff",
+    textAlign: "center",
+  },
+  warning: {
+    fontSize: 14,
+    fontFamily: "Sora_400Regular",
+    color: "#A0A0A0",
+    marginVertical: 10,
+  },
+  disclaimerContainer: {
+    marginVertical: 30,
+    backgroundColor: "#F4F4F4",
+    borderRadius: 4,
+    padding: 10,
+    gap: 10,
+  },
+  disclaimer: {
+    fontSize: 14,
+    fontFamily: "Sora_400Regular",
+    color: "#A0A0A0",
   },
 });
